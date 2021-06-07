@@ -1,0 +1,131 @@
+// start .sWalls
+.sWalls {
+	--sPT: #{rem(40)};
+	--sPB: #{rem(40)};
+	--sTPB: #{rem(70)};
+
+	.section-title{
+		@include media-breakpoint-up(lg){
+			padding-left: rem(60);
+		}
+
+		h2{
+			margin-bottom: rem(5);
+		}
+		p{
+			color: $deep-blue;
+			font-size: rem(25);
+			font-weight: 700;
+		}
+	}
+	&__row{
+		@include roww(rem(15));
+		--bs-gutter-y: #{rem(20)};
+
+		@include media-breakpoint-up(xl){
+			max-width: 1060px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
+	&__item{
+		display: block;
+
+		color: $body-color;
+		&:hover{
+			color: $primary;
+			--box-bef-o: 1;
+			--det-o: 1;
+		}
+	}
+	&__box{
+		display: block;
+		position: relative;
+		z-index: 1;
+
+		&:before{
+			@include mt();
+			opacity: var(--box-bef-o, 0);
+			content: '';
+			position: absolute;
+			z-index: -1;
+			top: -2px;
+			left: -2px;
+			width: calc(100% + 4px);
+			height: calc(100% + 4px);
+
+			border-radius: 5px;
+			background: $primary;
+		}
+	}
+	&__img{
+		@extend .accept-ratio-frame-nh;
+		padding-top: 100%;
+		border-radius: 4px;
+		margin-bottom: rem(15);
+	}
+	&__detail{
+		@include mt();
+		//opacity: var(--det-o, 0);
+
+		position: absolute;
+		bottom: 100%;
+		width: calc(100% - #{rem(76)});
+		left: #{rem(38)};
+		height: rem(38);
+		border-radius: rem(20) rem(20) 0 0;
+		background: $primary;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 3px 10px;
+
+		color: $body-color;
+		font-size: rem(19);
+		font-weight: 700;
+		text-transform: uppercase;
+
+		span{
+			display: inline-block;
+			line-height: 1.2;
+			border-bottom: 1px dashed $body-color;
+		}
+
+		&:before,
+		&:after{
+			box-shadow: 0 0 0 16px $primary;
+			content: "";
+			position: absolute;
+			height: 38px;
+			width: 38px;
+			bottom: 0;
+			clip: rect(0,38px,38px,0);
+			border-bottom-right-radius: 0;
+			border-top-right-radius: 80%;
+			display: block;
+			background: transparent;
+		}
+
+		&:before{
+			left: calc(100% - 2px);
+			transform: rotate(180deg);
+			width: 39px;
+		}
+		&:after{
+			right: calc(100% - 2px);
+			transform: rotate(90deg);
+			width: 38px;
+		}
+	}
+	&__name{
+		display: block;
+		font-size: rem(22);
+		text-decoration: underline;
+		padding: 0 rem(15);
+	}
+	//
+	&__{}
+	&__{}
+	&__{}
+} // end.sWalls

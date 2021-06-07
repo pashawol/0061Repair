@@ -1,0 +1,67 @@
+mixin sWalls(data)
+	// start sWalls
+	+b.SECTION.sWalls.section#sWalls&attributes(attributes)
+		.container
+			+b.section-title
+				h2 Услуги по возведению и отделке стен:
+				p Сделаем отделку стен любой сложности под ключ. Работаем в Москве и Московской области.
+			+e.row.row
+				+sWallsItem({
+					bootClasses: 'col-sm-6 col-md-4',
+					imgNum: '1',
+					name: 'Отделка стен панелями',
+				})
+				+sWallsItem({
+					bootClasses: 'col-sm-6 col-md-4',
+					imgNum: '2',
+					name: 'Декоративная отделка стен',
+				})
+				+sWallsItem({
+					bootClasses: 'col-sm-6 col-md-4',
+					imgNum: '3',
+					name: 'Декоративная штукатурка',
+				})
+				+sWallsItem({
+					bootClasses: 'col-sm-6 col-md-4',
+					imgNum: '4',
+					name: 'Отделка стен кирпичом',
+				})
+				//
+				+sWallsItem({
+					bootClasses: 'col-sm-6 col-md-4',
+					imgNum: '5',
+					name: 'Грунтовка стен',
+				})
+				+sWallsItem({
+					bootClasses: 'col-sm-6 col-md-4',
+					imgNum: '6',
+					name: 'Возведение стен',
+				})
+				+sWallsItem({
+					bootClasses: 'col-sm-6 col-md-4',
+					imgNum: '7',
+					name: 'Снос стен',
+				})
+				+sWallsItem({
+					bootClasses: 'col-sm-6 col-md-4',
+					imgNum: '8',
+					name: 'Отделка стен камнем',
+				})
+			+e.btn-cont.text-center
+				+e.btn(href="#")
+					span
+						| Показать все услуги
+						|
+					strong +
+	// end sWalls
+
+mixin sWallsItem(data)
+	+e.col.col-lg-3(class=data.bootClasses)
+		+e.item(href="#")
+			+e.box
+				+e.img
+					//img(loading="lazy" src=`img/@2x/sWalls-${data.imgNum}.jpg` alt="")
+					img(loading="lazy" src=`img/@2x/sWalls-regular.jpg` alt="")
+				+e.detail
+					span Подробнее
+			+e.name=data.name
