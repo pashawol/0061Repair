@@ -1,0 +1,41 @@
+mixin sPrice(data)
+	// start sPrice
+	+b.SECTION.sPrice.section#sPrice&attributes(attributes)
+		.container
+			+b.section-title
+				h2
+					| Прайс-лист на услуги
+					br
+					| по возведению и отделке стен:
+			+e.table
+				table.ui-table
+					thead
+						tr
+							th Наименование работ:
+							th Ед. изм.
+							th Цена, руб.
+					tbody
+						+sPriceTr('Демонтаж стен из ГКЛ, ДСП, Асбестоцементных плит', 'кв.м', '345')
+						+sPriceTr('Демонтаж кирпичных стен в 1/2 кирпича', 'кв.м', '431')
+						+sPriceTr('Демонтаж кирпичных стен в 1/4 кирпича', 'кв.м', '271')
+						+sPriceTr('Демонтаж перегородок из керамзитобетонных, шлакобетонных блоков до 100 мм', 'кв.м', '801')
+						+sPriceTr('Демонтаж штукатурки толщиной до 3 см.', 'кв.м', '394')
+						+sPriceTr('Демонтаж штукатурки толщиной свыше 3 см.', 'кв.м', '493')
+						+sPriceTr('Демонтаж оконных, дверныхоткосов из штукатурки', 'м.п', '271')
+						+sPriceTr('Демонтаж подоконника', 'шт.', '308')
+						+sPriceTr('Демонтаж оконного блока', 'шт.', '1071')
+			+e.btn-cont.text-center
+				+e.price-box
+					b
+						| Скачайте полный прайс
+						|
+					| для Вашего ремонта прямо сейчас!
+				a.ui-button.sPrice__btn(class="--corner --corner-top --black ui-price-download__button" href="#")
+					span Скачать полный прайс
+	// end sPrice
+
+mixin sPriceTr(td1='Демонтаж оконного блока', td2='кв.м', td3='')
+	tr
+		td=td1
+		td=td2
+		td=td3

@@ -125,6 +125,12 @@ body {
 	& > *:last-child{
 		margin-bottom: 0;
 	}
+
+	&--pushed{
+		@include media-breakpoint-up(lg){
+			padding-left: rem(60);
+		}
+	}
 }
 
 
@@ -528,5 +534,40 @@ iframe {
 		top: 0;
 		left: 0;
 		object-fit: cover;
+	}
+}
+
+.btn-default{
+	@extend .btn;
+	@extend .btn-outline-primary;
+	min-width: rem(240);
+	box-shadow: none!important;
+
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+
+	font-size: rem(25);
+
+	border: 2px solid $primary!important;
+	background-color: $white!important;
+	color: $body-color!important;
+	&:hover{
+		border: 2px solid $body-color!important;
+		background-color: $body-color!important;
+		color: $white!important;
+	}
+
+	span{
+		color: $primary;
+		font-weight: 700;
+		margin-left: 5px;
+	}
+}
+
+.container{
+	@include media-breakpoint-down(xl){
+		max-width: 100% !important;
 	}
 }

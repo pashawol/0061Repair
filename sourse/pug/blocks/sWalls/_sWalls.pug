@@ -2,7 +2,7 @@ mixin sWalls(data)
 	// start sWalls
 	+b.SECTION.sWalls.section#sWalls&attributes(attributes)
 		.container
-			+b.section-title
+			+b.section-title--pushed
 				h2 Услуги по возведению и отделке стен:
 				p Сделаем отделку стен любой сложности под ключ. Работаем в Москве и Московской области.
 			+e.row.row
@@ -49,10 +49,8 @@ mixin sWalls(data)
 				})
 			+e.btn-cont.text-center
 				+e.btn(href="#")
-					span
-						| Показать все услуги
-						|
-					strong +
+					| Показать все услуги
+					span +
 	// end sWalls
 
 mixin sWallsItem(data)

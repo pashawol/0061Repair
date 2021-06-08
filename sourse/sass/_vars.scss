@@ -36,7 +36,7 @@ $utilities: ("opacity": (
 $white: #fff !default;
 $gray-100: #f8f9fa !default;
 $gray-200: #e9ecef !default;
-$gray-300: #dee2e6 !default;
+$gray-300: #e9e9e9; //+
 $gray-400: #ced4da !default;
 $gray-500: #adb5bd !default;
 $gray-600: #6c757d !default;
@@ -382,7 +382,7 @@ $border-color: $gray-300 !default;
 // scss-docs-end border-variables
 
 // scss-docs-start border-radius-variables
-$border-radius: .25rem !default;
+$border-radius: rem(5);
 $border-radius-sm: .2rem !default;
 $border-radius-lg: .3rem !default;
 $border-radius-pill: 50rem !default;
@@ -633,8 +633,8 @@ $input-btn-border-width: $border-width !default;
 // For each of Bootstrap's buttons, define text, background, and border color.
 
 // scss-docs-start btn-variables
-$btn-padding-y: $input-btn-padding-y !default;
-$btn-padding-x: $input-btn-padding-x !default;
+$btn-padding-y: rem(16.5);
+$btn-padding-x: rem(20);
 $btn-font-family: $input-btn-font-family !default;
 $btn-font-size: $input-btn-font-size !default;
 $btn-line-height: $input-btn-line-height !default;
@@ -648,7 +648,7 @@ $btn-padding-y-lg: $input-btn-padding-y-lg !default;
 $btn-padding-x-lg: $input-btn-padding-x-lg !default;
 $btn-font-size-lg: $input-btn-font-size-lg !default;
 
-$btn-border-width: $input-btn-border-width !default;
+$btn-border-width: 2px;
 
 $btn-font-weight: $font-weight-normal !default;
 $btn-box-shadow: inset 0 1px 0 rgba($white, .15),
@@ -663,7 +663,7 @@ $btn-link-hover-color: $link-hover-color !default;
 $btn-link-disabled-color: $gray-600 !default;
 
 // Allows for customizing button radius independently from global border radius
-$btn-border-radius: $border-radius !default;
+$btn-border-radius: rem(5);
 $btn-border-radius-sm: $border-radius-sm !default;
 $btn-border-radius-lg: $border-radius-lg !default;
 

@@ -220,7 +220,32 @@ const JSCCommon = {
 		let now = new Date();
 		let currentYear = document.querySelector(el);
 		if (currentYear) currentYear.innerText = now.getFullYear();
-	}
+	},
+
+	//
+	tabscostume(tab) {
+		let tabs = {
+			Btn: [].slice.call(document.querySelectorAll(`.${tab}__btn`)),
+			BtnParent: [].slice.call(document.querySelectorAll(`.${tab}__caption`)),
+			Content: [].slice.call(document.querySelectorAll(`.${tab}__content`)),
+		}
+		tabs.Btn.forEach((element, index) => {
+			element.addEventListener('click', () => {
+				if (!element.classList.contains('active')) {
+					//turn off old
+					let oldActiveEl = element.closest(`.${tab}`).querySelector(`.${tab}__btn.active`);
+					let oldActiveContent = tabs.Content[index].closest(`.${tab}`).querySelector(`.${tab}__content.active`);
+
+					oldActiveEl.classList.remove('active');
+					oldActiveContent.classList.remove('active')
+
+					//turn on new(cklicked el)
+					element.classList.add('active');
+					tabs.Content[index].classList.add('active');
+				}
+			})
+		})
+	},
 
 };
 const $ = jQuery;
@@ -228,7 +253,7 @@ const $ = jQuery;
 function eventHandler() {
 	JSCCommon.ifie();
 	JSCCommon.modalCall();
-	//JSCCommon.tabscostume('.tabs--js');
+	JSCCommon.tabscostume('tabs');
 	JSCCommon.mobileMenu();
 	JSCCommon.inputMask();
 	JSCCommon.sendForm();
