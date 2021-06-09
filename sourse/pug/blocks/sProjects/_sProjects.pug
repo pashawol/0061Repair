@@ -1,0 +1,68 @@
+mixin sProjects(data)
+	// start sProjects
+	+b.SECTION.sProjects.section#sProjects&attributes(attributes)
+		.container
+			+b.section-title--pushed
+				h1 Наши проекты:
+			.tabs
+				+e.slider-wrap.tabs__caption
+					.swiper-container.sProjects-slider-js
+						.swiper-wrapper
+							+sProjectsCaption('Все типы помещений', 'active')
+							+sProjectsCaption('КВАРТИРЫ')
+							+sProjectsCaption('САНУЗЛЫ')
+							+sProjectsCaption('КОМНАТЫ')
+							+sProjectsCaption('ТАУНХАУСЫ')
+							+sProjectsCaption('КОТТЕДЖИ')
+							+sProjectsCaption('ОФИСЫ')
+							//-+sProjectsCaption('')
+				.tabs__wrap
+					.tabs__content.active
+						+e.items
+							-for(var i = 0; i < 3; i++)
+								+sProjectsProject(i)
+						.text-center
+							+e.btn(href="#")
+								| Показать все услуги
+								span +
+					.tabs__content
+					.tabs__content
+					.tabs__content
+					.tabs__content
+					.tabs__content
+					.tabs__content
+	// end sProjects
+
+mixin sProjectsProject(galeryId)
+	+e.item
+		+e.row.row.align-items-center
+			+e.l-col.col-md-4.col-lg-6.col-xxl-auto
+				+e.galery-row.row
+					- for(var i = 1; i < 9; i++)
+						+sProjectsGaleryItem(i, galeryId)
+			.col-md-8.col-lg-6.col-xxl
+				+e.txt-content
+					+e.title Ремонт 3-комнатной квартиры в Москве на ул.Ленина, д.43
+					+e.sub-title Что мы сделали:
+					+e.descr перепланировка; стяжка, «теплый пол», наливной пол; инженерия; штукатурные, плиточные работы; монтаж потолка и ниш из ГКЛ; укладка искусственного камня; шпатлевка и декоративное окрашивание стен; оклеивание обоями; укладка паркетной доски; утепление лоджии.
+					+e.done-items
+						+sProjectsDoneItem('Площадь:', '153м2')
+						+sProjectsDoneItem('Срок:', '5 месяцев')
+						+sProjectsDoneItem('Вид ремонта:', 'Капитальный')
+						+sProjectsDoneItem('Стоимость:', '843 000 Руб.')
+				+e.detail-btn(href='#') Подробнее
+		//
+mixin sProjectsDoneItem(key, val)
+	+e.done-item
+		strong=key
+		span=val
+
+
+mixin sProjectsGaleryItem(imgNum, galeryId)
+	.col-4.col-sm-3.col-md-6.col-lg-4
+		+e.img-link(href=`img/@2x/sProjects-${imgNum}.jpg` data-fancybox=`sProjectsGalery${galeryId}`)
+			img(loading="lazy" src=`img/@2x/sProjects-${imgNum}.jpg` alt="")
+
+mixin sProjectsCaption(txt, btnClasses)
+	.swiper-slide
+		+e.tabs-btn.tabs__btn(class=btnClasses)=txt

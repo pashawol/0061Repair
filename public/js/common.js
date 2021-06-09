@@ -127,6 +127,27 @@ const JSCCommon = {
 
 	// /mobileMenu
 	// tabs  .
+	tabscostume(tab) {
+		let tabs = {
+			Btn: [].slice.call(document.querySelectorAll(".".concat(tab, "__btn"))),
+			BtnParent: [].slice.call(document.querySelectorAll(".".concat(tab, "__caption"))),
+			Content: [].slice.call(document.querySelectorAll(".".concat(tab, "__content")))
+		};
+		tabs.Btn.forEach((element, index) => {
+			element.addEventListener('click', () => {
+				if (!element.classList.contains('active')) {
+					//turn off old
+					let oldActiveEl = element.closest(".".concat(tab)).querySelector(".".concat(tab, "__btn.active"));
+					let oldActiveContent = tabs.Content[index].closest(".".concat(tab)).querySelector(".".concat(tab, "__content.active"));
+					oldActiveEl.classList.remove('active');
+					oldActiveContent.classList.remove('active'); //turn on new(cklicked el)
+
+					element.classList.add('active');
+					tabs.Content[index].classList.add('active');
+				}
+			});
+		});
+	},
 
 	// /tabs
 	inputMask() {
@@ -220,32 +241,7 @@ const JSCCommon = {
 		let now = new Date();
 		let currentYear = document.querySelector(el);
 		if (currentYear) currentYear.innerText = now.getFullYear();
-	},
-
-	//
-	tabscostume(tab) {
-		let tabs = {
-			Btn: [].slice.call(document.querySelectorAll(`.${tab}__btn`)),
-			BtnParent: [].slice.call(document.querySelectorAll(`.${tab}__caption`)),
-			Content: [].slice.call(document.querySelectorAll(`.${tab}__content`)),
-		}
-		tabs.Btn.forEach((element, index) => {
-			element.addEventListener('click', () => {
-				if (!element.classList.contains('active')) {
-					//turn off old
-					let oldActiveEl = element.closest(`.${tab}`).querySelector(`.${tab}__btn.active`);
-					let oldActiveContent = tabs.Content[index].closest(`.${tab}`).querySelector(`.${tab}__content.active`);
-
-					oldActiveEl.classList.remove('active');
-					oldActiveContent.classList.remove('active')
-
-					//turn on new(cklicked el)
-					element.classList.add('active');
-					tabs.Content[index].classList.add('active');
-				}
-			})
-		})
-	},
+	}
 
 };
 const $ = jQuery;
@@ -317,12 +313,46 @@ function eventHandler() {
 		touchRatio: 0.2,
 		slideToClickedSlide: true,
 		freeModeMomentum: true
-	}));
+	})); // modal window
 	//luckyone js
 
+	let sProjectsSlider = new Swiper('.sProjects-slider-js', {
+		slidesPerView: 'auto',
+		freeMode: true,
+		loopFillGroupWithBlank: true,
+		touchRatio: 0.2,
+		slideToClickedSlide: true,
+		freeModeMomentum: true
+	}); // sFamiliar
+
+	let sFamiliarItems = document.querySelectorAll('.sFamiliar-item-js');
+
+	for (let item of sFamiliarItems) {
+		let sFamiliarThumb = new Swiper(item.querySelector('.sFamiliar-thumb-js'), {
+			slidesPerView: 'auto',
+			spaceBetween: 12 //slideToClickedSlide: true,
+
+		});
+		let sFamiliarSlider = new Swiper(item.querySelector('.sFamiliar-slider-js'), {
+			spaceBetween: 30,
+			thumbs: {
+				swiper: sFamiliarThumb
+			},
+			lazy: {
+				loadPrevNext: true,
+				loadPrevNextAmount: 3
+			},
+			loop: true
+		});
+	} // $('.custom-thumb-js').click(function (){
+	// 	$('.custom-thumb-js').removeClass('active');
+	// 	$(this).addClass('active');
+	//
+	// 	let index = $(this).index();
+	// 	console.log(sFamiliarSlider);
+	// })
 	//end luckyone js
 
-	// modal window
 }
 
 ;
@@ -331,4 +361,10 @@ if (document.readyState !== 'loading') {
 	eventHandler();
 } else {
 	document.addEventListener('DOMContentLoaded', eventHandler);
-}
+} // window.onload = function () {
+// 	document.body.classList.add('loaded_hiding');
+// 	window.setTimeout(function () {
+// 		document.body.classList.add('loaded');
+// 		document.body.classList.remove('loaded_hiding');
+// 	}, 500);
+// }

@@ -1,0 +1,166 @@
+// start .sProjects
+.sProjects {
+
+	.section-title{
+		h1{
+
+		}
+	}
+	&__slider-wrap{
+		border-radius: rem(5);
+		background-color: $gray-300;
+		position: relative;
+		z-index: 1;
+
+		&:after{
+			content: '';
+			@include media-breakpoint-up(md){
+				content: none;
+			}
+
+			position: absolute;
+			z-index: -1;
+			top: 0;
+			width: 100vw;
+			left: calc(-1 * (100vw - 100%) / 2);
+			height: 100%;
+			background-color: inherit;
+		}
+
+		@include media-breakpoint-up(lg){
+			padding: 0 rem(40);
+		}
+		.swiper-container{
+			overflow: visible!important;
+		}
+		.swiper-wrapper{
+			@include media-breakpoint-up(lg){
+				justify-content: space-between;
+			}
+		}
+		.swiper-slide{
+			width: auto;
+		}
+
+		margin-bottom: rem(50);
+		@include media-breakpoint-up(xl){
+			margin-bottom: rem(75);
+		}
+	}
+	&__tabs-btn{
+		padding: rem(20) rem(10);
+		@include mt();
+		text-transform: uppercase;
+
+		font-size: rem(17);
+		line-height: (20/17);
+
+		color: $body-color;
+		&.active{
+			color: $primary;
+			text-decoration: underline;
+			&:after{
+				opacity: 1;
+			}
+		}
+
+		position: relative;
+		&:after{
+			opacity: 0;
+			@include mt();
+			content: '';
+			position: absolute;
+
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-width: 17px 8px 0 8px;
+			border-color: $primary transparent transparent transparent;
+
+			left: (100/270) * 100%;
+			top: calc(100% - 1px);
+
+		}
+	}
+	//
+	&__item{
+		@extend .dot-item-frame;
+
+		padding-bottom: rem(45);
+		margin-bottom: rem(50);
+		@include media-breakpoint-up(xl){
+			padding-bottom: rem(65);
+			margin-bottom: rem(80);
+		}
+	}
+	&__row{
+		--bs-gutter-y: #{rem(30)};
+
+
+		@include media-breakpoint-up(lg){
+			--bs-gutter-x: #{rem(60)};
+		}
+	}
+	&__l-col{
+		@include media-breakpoint-up(xxl){
+			width: 515px;
+		}
+	}
+	&__galery-row{
+		--bs-gutter-x: #{rem(12)};
+		--bs-gutter-y: #{rem(12)};
+		@include media-breakpoint-up(sm){
+			--bs-gutter-x: #{rem(20)};
+			--bs-gutter-y: #{rem(20)};
+		}
+	}
+	&__img-link{
+		@extend .galery-link;
+	}
+	&__txt-content{
+		padding-bottom: rem(25);
+	}
+	&__title{
+		color: $body-color;
+		font-size: rem(33);
+		margin-bottom: rem(30);
+	}
+	&__sub-title{
+		color: $body-color;
+		font-size: rem(25);
+	}
+	&__descr{
+		color: $gray-650;
+		font-size: rem(21);
+		margin-bottom: rem(30);
+	}
+	&__done-items{
+
+	}
+	&__done-item{
+		font-size: rem(25px);
+		strong{
+			font-weight: 400;
+			margin-right: rem(5);
+		}
+		span{
+			color: $gray-650;
+		}
+	}
+	&__detail-btn{
+		@extend .btn;
+		@extend .btn-primary;
+
+		color: $white!important;
+		font-size: rem(19);
+		line-height: 1;
+		font-weight: 700;
+		text-transform: uppercase;
+	}
+	//
+	&__btn{
+		@extend .btn-default;
+	}
+	&__{}
+	&__{}
+} // end.sProjects

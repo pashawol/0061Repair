@@ -3,6 +3,7 @@
 	@include media-breakpoint-up(xl){
 		--sTPB: #{rem(46)};
 	}
+	--sPB: #{rem(65)};
 
 	.section-title{
 		h2{
@@ -16,7 +17,7 @@
 			margin-bottom: rem(25);
 
 			padding: rem(10);
-			@include media-breakpoint-up(lg){
+			@include media-breakpoint-up(md){
 				padding: 2px 0;
 			}
 		}
@@ -41,7 +42,9 @@
 
 		&:before,
 		&:after{
-			content: '';
+			@include media-breakpoint-up(md){
+				content: '';
+			}
 			position: absolute;
 			z-index: -1;
 			background-color: $primary;
@@ -70,7 +73,13 @@
 		padding: rem(10) rem(20);
 		border-radius: $btn-border-radius;
 
-		min-width: rem(270);
+		min-width: 100%;
+		@include media-breakpoint-up(md){
+			min-width: rem(220);
+		}
+		@include media-breakpoint-up(lg){
+			min-width: rem(270);
+		}
 
 		&.active{
 			background-color: $primary;
@@ -86,7 +95,10 @@
 		&:after{
 			opacity: 0;
 			@include mt();
-			content: '';
+
+			@include media-breakpoint-up(md){
+				content: '';
+			}
 			position: absolute;
 
 			width: 0;
@@ -128,7 +140,12 @@
 	}
 	//
 	&__row{
+		--bs-gutter-y: #{rem(45)};
 
+		--bs-gutter-x: #{rem(20)};
+		@include media-breakpoint-up(lg){
+			--bs-gutter-x: #{rem(30)};
+		}
 	}
 	&__item{
 		position: relative;
@@ -147,10 +164,17 @@
 
 	}
 	&__title{
-		font-size: rem(33);
+		font-size: rem(28);
+		@include media-breakpoint-up(sm){
+			font-size: rem(33);
+		}
 		font-weight: 700;
 		text-transform: uppercase;
-		margin-bottom: rem(45);
+
+		margin-bottom: rem(25);
+		@include media-breakpoint-up(lg){
+			margin-bottom: rem(45);
+		}
 	}
 	&__txt-content{
 		font-size: rem(21);

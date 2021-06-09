@@ -1,0 +1,143 @@
+// start .sFamiliar
+.sFamiliar {
+
+	.section-title{
+		h2{
+
+		}
+	}
+	&__items{
+
+	}
+	&__item{
+		@extend .dot-item-frame;
+
+		margin-bottom: rem(40);
+		padding-bottom: rem(40);
+		@include media-breakpoint-up(md){
+			margin-bottom: rem(60);
+			padding-bottom: rem(60);
+		}
+	}
+	&__row{
+		--bs-gutter-y: #{rem(30)};
+	}
+	&__l-col{
+		@include media-breakpoint-up(xl){
+			width: 715px!important;
+		}
+	}
+	&__sliders-cont{
+		position: relative;
+	}
+	&__slider-wrap{
+		margin-bottom: rem(10);
+		@include media-breakpoint-up(sm){
+			margin-bottom: 0;
+		}
+		.swiper-container{}
+		.swiper-wrapper{}
+		.swiper-slide{
+			width: 100%;
+		}
+	}
+	&__thumb-wrap{
+		border-radius: rem(10);
+		overflow: hidden;
+
+		background: $gray-200!important;
+		@include media-breakpoint-up(sm){
+			background: $white!important;
+			position: absolute;
+			z-index: 10;
+			bottom: rem(15);
+			left: rem(17);
+			width: calc(100% - #{rem(30)});
+		}
+
+		.swiper-container{}
+		.swiper-wrapper{}
+		.swiper-slide{
+			cursor: pointer;
+			width: auto;
+
+			&.swiper-slide-thumb-active{
+				--th-color: #{$white};
+				--th-bg: #{$primary};
+			}
+		}
+	}
+	&__thumb{
+		@include mt();
+		background-color: var(--th-bg, transparent);
+		color: var(--th-color, #{$black});
+		font-size: rem(25);
+		padding: rem(10) rem(20);
+		border-radius: rem(10);
+	}
+
+	&__img-link{
+		@extend .galery-link;
+		padding-top: (414/646) * 100%;
+	}
+	&__title{
+		font-size: rem(29);
+		font-weight: 900;
+
+		&:after{
+			display: block;
+			content: '';
+
+			margin: rem(20) 0;
+			@include media-breakpoint-up(lg){
+				margin: rem(20) auto;
+			}
+
+			width: rem(183);
+			height: 4px;
+			background-color: $primary;
+		}
+	}
+	//chars
+	&__chars{
+		margin-bottom: rem(25);
+	}
+	&__charItem{
+		font-size: rem(21);
+	}
+	&__black{
+		margin-right: rem(5);
+	}
+	&__gray{
+		color: $gray-650;
+		font-weight: 400;
+	}
+	//
+	&__big-chars{
+		margin-bottom: rem(18);
+	}
+	&__b-charItem{
+
+	}
+	&__b-orange{
+		color: $primary;
+		font-weight: 700;
+		font-size: rem(25);
+		margin-right: rem(5);
+	}
+	&__b-black{
+		font-size: rem(25);
+		font-weight: 700;
+	}
+	//
+	&__btn{
+		@extend .btn;
+		@extend .btn-primary;
+
+		font-size: rem(25);
+		line-height: 1;
+		color: $white!important;
+		font-weight: 700;
+	}
+	&__{}
+} // end.sFamiliar

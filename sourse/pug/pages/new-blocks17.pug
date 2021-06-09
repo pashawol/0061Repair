@@ -9,21 +9,23 @@ include ../blocks/sHeaderBlOld/_sHeaderBlOld.pug
 include ../blocks/sPrice/_sPrice.pug
 include ../blocks/sDiscont/_sDiscont.pug
 include ../blocks/sProjects/_sProjects.pug
+include ../blocks/sBaner/_sBaner.pug
+include ../blocks/sGalery/_sGalery.pug
+include ../blocks/sFamiliar/_sFamiliar.pug
 
 block variables
-	- let  mainPage= null 
+	- let  mainPage= 'thin-cont'
 	- let  bg= null
 
 block title
-	- let  title= 'title'
+	- let  title= '17'
 	title= title
 block pagecontent
 	+oldMobMenu()
 	+HeaderOld()
-	+sWalls()
-	+sPrice()
-	+sDiscont()
-	+sProjects()
+	//+sBaner()
+	+sGalery()
+	+sFamiliar()
 	+footerOld()
 	//+mob-mnu()
 	//+header()

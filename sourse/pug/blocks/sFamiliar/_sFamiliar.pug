@@ -1,0 +1,70 @@
+mixin sFamiliar(data)
+	// start sFamiliar
+	+b.SECTION.sFamiliar.section#sFamiliar&attributes(attributes)
+		.container
+			+b.section-title
+				h2 Похожие проекты:
+			+e.items
+				+sFamiliarItem({
+					numArr: [1,2,3,1],
+					fancyId: 1,
+					title: 'Дизайнерский ремонт в однокомнатной квартире (ЖК Чистое Небо)',
+				})
+				+sFamiliarItem({
+					numArr: [2, 1, 3, 1],
+					fancyId: 2,
+					title: 'Дизайнерский ремонт в однокомнатной квартире (ЖК Чистое Небо)',
+				})
+				+sFamiliarItem({
+					numArr: [3, 2, 1, 1],
+					fancyId: 3,
+					title: 'Дизайнерский ремонт в однокомнатной квартире (ЖК Чистое Небо)',
+				})
+	// end sFamiliar
+
+mixin sFamiliarItem(data)
+	+e.item.sFamiliar-item-js
+		+e.row.row
+			+e.l-col.col-lg-8.col-xl-auto
+				+e.sliders-cont
+					+e.slider-wrap
+						.swiper-container.sFamiliar-slider-js
+							.swiper-wrapper
+								-for(let num of data.numArr)
+									+sFamiliarSlide(num, data.fancyId)
+					+e.thumb-wrap
+						.swiper-container.sFamiliar-thumb-js
+							.swiper-wrapper
+								+sFamiliarThumb('Комната')
+								+sFamiliarThumb('Коридор')
+								+sFamiliarThumb('Кухня')
+								+sFamiliarThumb('Санузел')
+			.col-lg-4.col-xl.text-lg-center
+				+e.title=data.title
+				+e.chars
+					+sFamiliarCharItem('Площадь:', '37м2')
+					+sFamiliarCharItem('Срок:', '6 недель')
+					+sFamiliarCharItem('Вид ремонта:', 'Под ключ')
+				+e.big-chars
+					+sFamiliarBigCharItem('Цена за м2:', '10500 Руб.')
+					+sFamiliarBigCharItem('Стоимость:', '388 500 Руб.')
+				+e.btn(href="#") Подробнее
+
+mixin sFamiliarCharItem(key,val)
+	+e.charItem
+		+e.SPAN.black=key
+		+e.SPAN.gray=val
+
+mixin sFamiliarBigCharItem(key,val)
+	+e.b-charItem
+		+e.SPAN.b-orange=key
+		+e.SPAN.b-black=val
+
+mixin sFamiliarSlide(imgNum,fancyId)
+	.swiper-slide
+		+e.img-link(href=`img/@2x/sFamiliar-${imgNum}.jpg` data-fancybox=`familarItem${fancyId}`)
+			img(loading="lazy" src=`img/@2x/sFamiliar-${imgNum}.jpg` alt="")
+
+mixin sFamiliarThumb(txt)
+	.swiper-slide
+		+e.thumb=txt

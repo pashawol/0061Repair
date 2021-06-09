@@ -1,0 +1,20 @@
+// start .sGalery
+.sGalery {
+
+
+	&__row{
+		--bs-gutter-x: #{rem(30)};
+		--bs-gutter-y: #{rem(24)};
+	}
+	&__col{
+		@include media-breakpoint-up(xl){
+			width: 20%;
+		}
+	}
+	&__img-link{
+		@extend .galery-link;
+	}
+	&__{}
+	&__{}
+	&__{}
+} // end.sGalery
