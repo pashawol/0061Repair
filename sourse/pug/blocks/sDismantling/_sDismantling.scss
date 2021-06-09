@@ -1,0 +1,94 @@
+// start .sDismantling
+.sDismantling {
+
+	.section-title{
+		h2{
+			margin-bottom: rem(35);
+		}
+		p{
+			color: $body-color;
+			font-weight: 900;
+
+			font-size: rem(24);
+			@include media-breakpoint-up(md){
+				font-size: rem(29);
+			}
+		}
+	}
+	&__main-row{
+		--bs-gutter-x: #{rem(30)};
+
+		--bs-gutter-y: #{rem(30)};
+		@include media-breakpoint-up(lg){
+			--bs-gutter-y: #{rem(40)};
+		}
+	}
+	&__col{
+		@media (min-width: 500px) {
+			width: 50%;
+		}
+	}
+	&__item{
+
+	}
+	&__i-row{}
+	&__img-col{
+
+		@include media-breakpoint-up(lg){
+			width: calc(250px + var(--bs-gutter-x));
+		}
+	}
+	&__img{
+		@extend .accept-ratio-frame-nh;
+
+		padding-top: 100%;
+		@include media-breakpoint-up(lg){
+			padding-top: (396/250) * 100%;
+		}
+		border-radius: rem(5);
+		margin-bottom: rem(20);
+	}
+	&__btn{
+		@extend .btn-default;
+		min-width: 100%;
+		font-weight: 700;
+		text-transform: uppercase;
+
+		border-color: $body-color!important;
+		&:hover{
+			border-color: $primary!important;
+			background-color: $primary!important;
+		}
+	}
+	&__title{
+		font-weight: 700;
+		font-size: rem(24);
+		margin-bottom: rem(30);
+	}
+	&__txt-col{
+		ul{
+			li{
+				font-size: rem(21px);
+				margin-bottom: rem(20);
+
+				.small{
+					font-size: rem(17px);
+					margin-left: rem(4);
+				}
+
+				&:before{
+					content: '';
+					display: inline-block;
+					margin-right: rem(5);
+
+					background-color: $primary;
+					width: 6px;
+					height: 6px;
+					border-radius: 50%;
+				}
+			}
+		}
+	}
+	&__{}
+	&__{}
+} // end.sDismantling

@@ -1,0 +1,66 @@
+mixin sDismantling(data)
+	// start sDismantling
+	+b.SECTION.sDismantling.section#sDismantling&attributes(attributes)
+		.container
+			+b.section-title--pushed
+				h2 Демонтаж "под ключ" с вывозом мусора
+				p Умеем и делаем:
+			+e.main-row.row
+				+sDismantlingItem({
+					imgNum: 1,
+					title: 'Демонтаж пола и стяжки:',
+				})
+					ul
+						//-
+						li
+							span Плитки
+							span.small (в ванной комнате и на уличных площадках)
+						li Паркета
+						li Линолеума
+						li Памината
+						li Стяжки пола
+				+sDismantlingItem({
+					imgNum: 2,
+					title: 'Демонтаж стен и перегородок:',
+				})
+					ul
+						li Кирпичные
+						li Пенобетонные, бетонные
+						li Гипсолитовые
+						li Пазогребневые
+						li Шпаклевки, обоев
+						li Стеклоблочные
+				+sDismantlingItem({
+					imgNum: 3,
+					title: 'Демонтаж потолка:',
+				})
+					ul
+						li Натяжной
+						li Армстронг
+						li Грильято
+						li Гипсокартона
+						li Шпатлевку и краску
+				+sDismantlingItem({
+					imgNum: 4,
+					title: 'Демонтаж коммуникаций:',
+				})
+					ul
+						li Демонтаж системы отопления
+						li Водопроводные и канализационные трубы
+						li Сантехкабины и сантехники
+						li Межкомнатные и входные двери (железные) электропроводку
+
+	// end sDismantling
+
+
+mixin sDismantlingItem(data)
+	+e.col.col-sm-6
+		+e.item
+			+e.i-row.row.gy-3
+				+e.img-col.col-lg-auto
+					+e.img
+						img(loading="lazy" src=`img/@2x/sDismantling-${data.imgNum}.png` alt="")
+					+e.btn(href="#") Заявка на демонтаж
+				+e.txt-col.col-md
+					+e.title=data.title
+					block

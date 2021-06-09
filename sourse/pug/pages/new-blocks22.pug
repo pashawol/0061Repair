@@ -12,18 +12,21 @@ include ../blocks/sProjects/_sProjects.pug
 include ../blocks/sBaner/_sBaner.pug
 include ../blocks/sGalery/_sGalery.pug
 include ../blocks/sFamiliar/_sFamiliar.pug
+include ../blocks/sDismantling/_sDismantling.pug
+include ../blocks/sPriceTabs/_sPriceTabs.pug
+include ../blocks/sInstall/_sInstall.pug
 
 block variables
-	- let  mainPage= 'thin-cont'
+	- let  mainPage= null
 	- let  bg= null
 
 block title
-	- let  title= '17'
+	- let  title= '22'
 	title= title
 block pagecontent
 	+oldMobMenu()
 	+HeaderOld()
-	//+sBaner()
-	+sGalery()
-	+sFamiliar()
+	+sInstall()
+	//+sDismantling()
+	//+sPriceTabs()
 	+footerOld()

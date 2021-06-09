@@ -1,0 +1,54 @@
+mixin sPriceTabs(data)
+	// start sPriceTabs
+	+b.SECTION.sPriceTabs.section#sPriceTabs&attributes(attributes)
+		.container
+			+b.section-title--pushed
+				h2 Стоимость демонтажных работ:
+			+e.box
+				+e.main-row.row
+					.col-lg-7
+						+e.caption-row.row
+							+sPriceTabsCationItem(1, 'Подготовка к ремонту', 'active')
+							+sPriceTabsCationItem(2, 'Демонтаж перегородок')
+							+sPriceTabsCationItem(3, 'Демонтаж пола')
+							+sPriceTabsCationItem(4, 'Демонтаж стяжки')
+							+sPriceTabsCationItem(5, 'Демонтаж сантехкабины')
+							+sPriceTabsCationItem(6, 'Вымоз мусора')
+						+e.big-img-cont.d-none.d-lg-block
+							+e.big-img
+								img(loading="lazy" src="img/@2x/sPrice-Tabs-big.jpg" alt="")
+					.col-lg-5
+						+e.aside
+							+sPriceTabsAsideContent('Подготовка к ремонту', 'active')
+							+sPriceTabsAsideContent('Демонтаж перегородок')
+							+sPriceTabsAsideContent('Демонтаж пола')
+							+sPriceTabsAsideContent('Демонтаж стяжки')
+							+sPriceTabsAsideContent('Демонтаж сантехкабины')
+							+sPriceTabsAsideContent('Вымоз мусора')
+	// end sPriceTabs
+
+mixin sPriceTabsAsideContent(title, addClasses='')
+	+e.aside-content.sPriceTabs-content-js(class=addClasses)
+		+e.aside-bg
+			img(loading="lazy" src="img/@2x/sPrice-Tabs-bg.jpg" alt="")
+		+e.title=title
+		+e.chars
+			+charsItem('Зачистка поверхностей', 'от 300 руб/м2 по полу')
+			+charsItem('Частичный демонтаж', 'от 500 руб/м2 по полу')
+			+charsItem('Полный демонтаж', 'от 1000 руб/м2 по полу')
+			+charsItem('Демонтаж офисов', 'от 200 руб/м2 по полу')
+			+charsItem('Демонтаж нежилых помещений', 'от 400 руб/м2 по полу')
+		+e.a-btn(href="#") Оставить заявку на демонтаж
+		+e.connect-txt Мы свяжемся с Вами в течение 5 минут
+
+mixin charsItem(key, val)
+	+e.chars-item.row
+		+e.key-col.col-sm-6=key
+		+e.val-col.col-sm-6=val
+
+mixin sPriceTabsCationItem(imgNum, txt, addClasses='')
+	+e.caption-col.col-sm-6.col-sm-4.sPriceTabs-tab-btn-js(class=addClasses)
+		+e.icon
+			img.img-svg-js(loading="lazy" src=`img/svg/sPriceTabs-icon-${imgNum}.svg` alt="")
+			//+icon(`sPriceTabs-icon-${imgNum}`)
+		+e.txt=txt

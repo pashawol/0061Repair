@@ -1,0 +1,102 @@
+mixin sInstall(data)
+	// start sInstall
+	+b.SECTION.sInstall.section#sInstall&attributes(attributes)
+		+e.container.container
+			+b.section-title
+				h2 Монтаж электрики под ключ:
+			.tabs
+				+e.title-row.row.align-items-center
+					+e.l-col.col-lg-4.col-xl-auto
+						+e.title Выберите Нтип квартиры:
+					.col-lg-8.col-xxl
+						.tabs__caption
+							+e.cap-row.row
+								+sInstallTabsBtn('Однокомнатная', 'active')
+								+sInstallTabsBtn('Двухкомнатная')
+								+sInstallTabsBtn('Трехкомнатная')
+				.tabs__wrap
+					.tabs__content.active
+						+e.main-row.row.gy-4
+							+e.l-col.col-lg-4.col-xl-auto
+								+e.img-row.row
+									.col-sm-6.col-lg-12
+										+e.baner
+											img(loading="lazy" src="img/@2x/sInstall-baner.jpg" alt='')
+									.col-sm-6.col-lg-12
+										+e.box--black
+											+e.b-row.row
+												+e.b-txt-col.col
+													b Недостаточно точек?
+													p
+														| Добавим без
+														br
+														| изменения стоимости!
+												.col-auto
+													+e.b-icon
+														img.img-svg-js(loading="lazy" src="img/svg/sInstall-list.svg" alt="")
+										+e.box--orange
+											+e.b-row.row
+												+e.b-txt-col.col
+													p
+														| Гарантия 5 лет
+														br
+														| на работы и материалы!
+												.col-auto
+													+e.b-icon
+														img(loading="lazy" src="img/svg/sInstall-shield.svg" alt="")
+							.col-lg-8.col-xxl
+								+e.c-title
+									| Закажите самый выгодный вариант
+									br
+									| для вашей квартиры:
+								+e.chars
+									+sInstallCharItem('Тип квартиры:', 'однокомнатная')
+									+sInstallCharItem('Площадь:', 'от 31 до 40 м2')
+								+e.c-row.row
+									.col-md-6
+										+e.c-offer В специальное предложение входит:
+										+e.dot-chars
+											+sInstallDcItem('Розетка 220В', '13 шт')
+											+sInstallDcItem('Выключатель', '6 шт')
+											+sInstallDcItem('Точка освещения', '6 шт')
+											+sInstallDcItem('Сборка и монтаж электрощита', '1 шт')
+											+sInstallDcItem('Установка подрозетников', '19 шт')
+										+e.dot-chars
+											+sInstallDcItem('Штробление стен')
+											+sInstallDcItem('Фиксация кабеля в штробе')
+											+sInstallDcItem('Укладка кабеля в гофру')
+											+sInstallDcItem('Уборка строительного мусора')
+									.col-md-6
+										+e.result-table
+											+e.rt-row--head.row
+												+e.rt-key-col.col СРОК ВЫПОЛНЕНИЯ РАБОТ:
+												+e.rt-val-col.col-auto 3 ДНЯ
+											+sInstallRTItem('СТОИМОСТЬ РАБОТ:', '29 970 РУБ.')
+											+sInstallRTItem('СТОИМОСТЬ МАТЕРИАЛОВ:', '19 980 РУБ.')
+											+e.rt-row--foot.row
+												+e.rt-key-col.col.text-primary ОБЩАЯ СТОИМОСТЬ:
+												+e.rt-val-col.col-auto 49 950 РУБ.
+										+e.order-btn(href="#") Оставить заявку на монтаж!
+					.tabs__content 2
+					.tabs__content 3
+	// end sInstall
+
+mixin sInstallRTItem(key,val)
+	+e.rt-row.row
+		+e.rt-key-col.col=key
+		+e.rt-val-col.col-auto=val
+
+mixin sInstallCharItem(key,val)
+	+e.char-item
+		span.orange=key
+		span.black=val
+
+mixin sInstallDcItem(key,val)
+	+e.dc-item.row
+		+e.dc-key.col=key
+		if val
+			+e.dc-val.col-auto=val
+
+mixin sInstallTabsBtn(txt, addClasses)
+	.col-sm-auto
+		+e.tabs-btn.tabs__btn(class=addClasses)=txt
