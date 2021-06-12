@@ -1,0 +1,63 @@
+// start .sTechnology
+.sTechnology {
+
+	&__items{
+
+	}
+	&__item{
+		&:nth-child(even){
+			--row-f-dir: row-reverse;
+		}
+
+		padding-bottom: rem(40);
+		@include media-breakpoint-up(xl){
+			padding-bottom: rem(75);
+		}
+	}
+	&__row{
+		--bs-gutter-y: #{rem(30)};
+
+		@include media-breakpoint-up(md){
+			flex-direction: var(--row-f-dir, row);
+		}
+		@include media-breakpoint-up(lg){
+			--bs-gutter-x: #{rem(40)};
+		}
+		@include media-breakpoint-up(xl){
+			--bs-gutter-x: #{rem(75)};
+		}
+	}
+	&__baner{
+		@extend .accept-ratio-frame-nh;
+		padding-top: (285/501) * 100%;
+		border-radius: rem(5);
+	}
+	&__txt-box{
+		@include media-breakpoint-up(xl){
+			max-width: rem(480);
+		}
+
+		& > *:last-child{
+			margin-bottom: 0;
+		}
+
+		h4{
+			font-weight: 700;
+
+			font-size: rem(27);
+			@include media-breakpoint-up(md){
+				font-size: rem(30);
+			}
+			@include media-breakpoint-up(xl){
+				font-size: rem(42);
+			}
+		}
+
+		p{
+			font-size: rem(21);
+			line-height: 1.2;
+		}
+	}
+	&__{}
+	&__{}
+} // end.sTechnology

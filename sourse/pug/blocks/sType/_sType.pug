@@ -1,0 +1,37 @@
+mixin sType(data)
+	// start sType
+	+b.SECTION.sType.section#sType&attributes(attributes)
+		.container
+			+b.section-title--pushed
+				h2 Выберите тип квартиры и узнайте стоимость ремонта квартиры  в новостройке:
+			+e.row.row
+				+sTypeItem({
+					title: 'Ремонт 1-к квартиры',
+					imgNum: 1,
+					hasCountBtn: true,
+				})
+				+sTypeItem({
+					title: 'Ремонт 2-к квартиры',
+					imgNum: 2,
+				})
+				+sTypeItem({
+					title: 'Ремонт 3-к квартиры',
+					imgNum: 3,
+				})
+
+	// end sType
+
+mixin sTypeItem(data)
+	.col-lg-4
+		+e.box
+			+e.bg
+				img(loading="lazy" src=`img/@2x/sType-${data.imgNum}.jpg` alt="")
+			+e.content
+				+e.title=data.title
+				+e.txt Ремонт однокомнатной квартиры  в новостройке очень захватывающий и творческий процесс, а также наиболее популярная услуга среди наших клиентов. Мастера нашей компании...
+				+e.br-cont
+					+e.bot-row.row.justify-content-between
+						.col-auto
+							+e.btn(href="#") Подробнее
+						.col-auto
+							+e.btn--inv(href="#") Получить смету

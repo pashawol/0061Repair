@@ -1,0 +1,39 @@
+mixin sCalc(data)
+	// start sCalc
+	+b.SECTION.sCalc.section#sCalc&attributes(attributes)
+		.container
+			+e.main-row.row.align-items-center
+				.col-md
+					+b.section-title
+						h2
+							| Стоимость электромонтажа
+							br
+							| "под ключ":
+					+e.price-sm Стоимость: от 1200 руб./м2
+					+e.calc-row.row
+						.col-lg-auto
+							+e.c-title Площадь квартиры (по полу):
+							+e.resut-row.row.d-none.d-lg-block
+								+e.r-key.col-auto ИТОГО:
+								+e.r-val.col.text-end 93 600 Руб.
+						.col-lg
+							+e.range-inp
+								+range("10", "150", '₽')(class='with-symbol')
+					+e.resut-row.row.d-lg-none.pb-4
+						+e.r-key.col-auto ИТОГО:
+						+e.r-val.col.text-end 93 600 Руб.
+					+e.pills-row.row
+						+sCalcPill(1,'Срок от 1 недели')
+						+sCalcPill(2,'Без учета материалов')
+				.col-md-auto.d-none.d-md-block
+					+e.img
+						img(loading="lazy" src="img/@2x/sCalc-img.png" alt="")
+	// end sCalc
+
+mixin sCalcPill(imgNum,txt)
+	.col-auto
+		+e.p-row.row.align-items-center
+			.col-auto
+				+e.p-icon
+					img(loading="lazy" src=`img/svg/sCalc-${imgNum}.svg` alt="")
+			+e.p-txt.col=txt

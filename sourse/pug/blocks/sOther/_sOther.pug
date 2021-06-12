@@ -1,0 +1,21 @@
+mixin sOther(data)
+	// start sOther
+	+b.SECTION.sOther.section#sOther&attributes(attributes)
+		+e.container.container
+			+b.section-title
+				h2 Ремонт квартир и других объектов
+			+e.row.row
+				+sOtherItem(1,'Декоративная отделка')
+				+sOtherItem(2,'Ремонт новостроек')
+				+sOtherItem(3,'Ремонт коттеджей')
+				+sOtherItem(4,'Ремонт офисов')
+				+sOtherItem(5,'Кафе и рестораны')
+				+sOtherItem(6,'Дизайн-проект')
+	// end sOther
+
+mixin sOtherItem(imgNum, txt)
+	+e.col.col-sm-6.col-md-4
+		+e.item(href='#')
+			+e.img
+				img.img-svg-js(loading="lazy" src=`img/svg/sOther-${imgNum}.svg` alt="")
+			+e.txt=txt

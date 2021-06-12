@@ -379,6 +379,13 @@ function eventHandler() {
 
 			$img.replaceWith($svg);
 		}, 'xml');
+	}); //range slider
+
+	$(".range-slider--js").ionRangeSlider({
+		from: 10,
+		step: 1 //postfix: " ❤",
+		//prefix: "+",
+
 	}); //end luckyone js
 }
 

@@ -34,3 +34,61 @@
 	}
 }
 
+//range
+.range-wrap{
+	height: rem(50);
+
+	//
+	.irs-handle{
+		cursor: pointer;
+		border: none;
+		transition: background-color .3s ease-in-out, box-shadow .3s ease-in-out;
+
+		box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+		&:hover{
+			background-color: darken($white, 2);
+			box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+		}
+		&:focus{
+			background-color: $white;
+		}
+
+		min-width: 58px!important;
+		height: rem(50) !important;
+		border-radius: rem(5) !important;
+		background-color: $primary!important;
+		opacity: 1!important;
+		top: 0!important;
+
+		i{
+			opacity: 0!important;
+		}
+	}
+
+
+	.irs-bar, .irs-line{
+		top: 0!important;
+		background-color: $gray-300!important;
+		height: rem(50) !important;
+	}
+
+	.irs-max,
+	.irs-min{
+		display: none;
+	}
+
+	.irs-single{
+		cursor: pointer;
+		color: $body-color!important;
+		font-size: rem(21) !important;
+		font-weight: 700!important;
+		z-index: 100!important;
+		background-color: transparent!important;
+		height: rem(50) !important;
+		line-height: rem(50) !important;
+
+		&:before{
+			content: none!important;
+		}
+	}
+}

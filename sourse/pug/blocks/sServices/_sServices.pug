@@ -1,0 +1,26 @@
+mixin sServices(data)
+	// start sServices
+	+b.SECTION.sServices.section#sServices&attributes(attributes)
+		.container
+			+b.section-title--pushed
+				h2 Услуги по ремонту помещений:
+			+e.row.row
+				+sServicesItem(1,'Ремонт гостинной комнаты')
+				+sServicesItem(2,'Ремонт ванной комнаты')
+				+sServicesItem(3,'Ремонт кухни')
+				+sServicesItem(4,'Ремонт санузла')
+				+sServicesItem(5,'Ремонт детской комнаты')
+				+sServicesItem(6,'Ремонт прихожей')
+				+sServicesItem(7,'Ремонт спальной комнаты')
+				+sServicesItem(8,'Ремонт балконов')
+	// end sServices
+
+mixin sServicesItem(imgNum, title)
+	+e.col.col-sm-6.col-md-4.col-lg-3
+		+e.item(href="#")
+			+e.title.text-center.text-xl-start=title
+			+e.img
+				img(loading="lazy" src=`img/@2x/sServices-${imgNum}.png` alt="")
+			+e.btn-cont
+				.ui-button.sDiscont__btn(class="--corner --corner-top --black ui-price-download__button")
+					span Оставить заявку

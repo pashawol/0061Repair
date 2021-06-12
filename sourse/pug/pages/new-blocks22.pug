@@ -15,6 +15,8 @@ include ../blocks/sFamiliar/_sFamiliar.pug
 include ../blocks/sDismantling/_sDismantling.pug
 include ../blocks/sPriceTabs/_sPriceTabs.pug
 include ../blocks/sInstall/_sInstall.pug
+include ../blocks/sTechnology/_sTechnology.pug
+include ../blocks/sCalc/_sCalc.pug
 
 block variables
 	- let  mainPage= null
@@ -27,6 +29,8 @@ block pagecontent
 	+oldMobMenu()
 	+HeaderOld()
 	+sInstall()
+	+sTechnology()
+	+sCalc()
 	//+sDismantling()
 	//+sPriceTabs()
 	+footerOld()

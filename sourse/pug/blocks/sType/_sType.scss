@@ -1,0 +1,102 @@
+// start .sType
+.sType {
+	@include media-breakpoint-up(xl){
+		--sTPB: #{rem(75)};
+	}
+
+	&__section-title{
+		h2{
+			max-width: rem(720px);
+		}
+	}
+	&__row{
+		--bs-gutter-x: #{rem(23)};
+		--bs-gutter-y: #{rem(23)};
+	}
+	&__box{
+		min-height: 100%;
+		@include media-breakpoint-up(lg){
+			min-height: #{'max(100%, #{rem(350)})'};
+		}
+		padding: rem(23) rem(23) rem(30);
+		border-radius: rem(5);
+		overflow: hidden;
+		background: $body-color;
+
+		position: relative;
+		z-index: 1;
+
+		display: flex;
+
+		&:hover{
+			--txt-o: 1;
+			--bg-o: 0.13;
+		}
+	}
+	&__bg{
+		@include mt();
+		opacity: var(--bg-o, 1);
+
+		position: absolute;
+		z-index: -1;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+
+		img{
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+	&__content{
+		display: flex;
+		flex-direction: column;
+	}
+	&__title{
+		color: $white;
+		font-size: rem(26);
+		font-weight: 700;
+		margin-bottom: rem(30);
+	}
+	&__txt{
+		@include mt();
+		opacity: var(--txt-o, 0);
+		color: $primary;
+		font-size: rem(21);
+		line-height: 1.2;
+		font-weight: 400;
+
+		margin-bottom: rem(40);
+	}
+	&__br-cont{
+		margin-top: auto;
+	}
+	&__bot-row{
+		--bs-gutter-x: #{rem(20)};
+		--bs-gutter-y: #{rem(20)};
+	}
+	&__btn{
+		@include mt();
+		@extend .btn;
+		@extend .btn-primary;
+		border: none!important;
+
+		padding: rem(12) rem(20);
+		font-size: rem(20);
+
+		color: $white!important;
+		background-color: $primary!important;
+		&:hover{
+			color: $body-color!important;
+			background-color: $white!important;
+		}
+
+		&--inv{
+			opacity: var(--txt-o, 0);
+		}
+	}
+	&__{}
+	&__{}
+} // end.sType
