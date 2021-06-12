@@ -7,12 +7,11 @@ mixin allcss()
 	link(href="css/main.min.css", rel="stylesheet")
 
 mixin allcjs()
-	//- script(src="js/libs.js")
-
-	//- script(src="libs/loading-attribute-polyfill/loading-attribute-polyfill.min.js")
+	//old js
+	<script src="/local/build-stable/main.bundle.js"></script>
+	<script src="public/local/build-stable/main.bundle.js"></script>
 
 	// modal libs
-	<script src="/local/build-stable/main.bundle.js"></script>
 	script(src="libs/jquery/jquery.min.js")
 	script(src="libs/@fancyapps/fancybox/jquery.fancybox.min.js")
 	// modal libs
