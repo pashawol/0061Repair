@@ -5,11 +5,14 @@ mixin allcss()
 	//-range slider
 	link(rel="stylesheet", href="libs/ion-rangeslider/css/ion.rangeSlider.min.css")
 	link(href="css/main.min.css", rel="stylesheet")
+	//-old css
+	//-<link rel="stylesheet" href="/local/build-stable/main.bundle.css">
+	link(href="css/oldCss.css", rel="stylesheet")
 
 mixin allcjs()
 	//old js
-	<script src="/local/build-stable/main.bundle.js"></script>
-	<script src="public/local/build-stable/main.bundle.js"></script>
+	script(src="js/oldJs.js")
+	//<script src="/local/build-stable/main.bundle.js"></script>
 
 	// modal libs
 	script(src="libs/jquery/jquery.min.js")
